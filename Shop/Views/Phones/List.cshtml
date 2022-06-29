@@ -1,29 +1,15 @@
-﻿@using Shop.ViewModels
-@model PhonesListViewModel
-
-@{
-    Layout = "_Layout";
-}
-
-<!DOCTYPE html>
-    
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <h1>Все телефоны</h1>
-    <h3>@Model.currCategory</h3>
+﻿<h1>Все телефоны</h1>
+<h3>@Model.currCategory</h3>
+<div class="row mt-5 mb-2">
     @{
         foreach (var phone in Model.allPhones)
-        {
-                <div>
-                    <h2>Модель: @phone.name</h2>
-                    <p>Цена: @phone.price.ToString("c")</p>
-                </div>  
+        {<div class="col-lg-4">
+                <img class="img-thumbnail" src="@phone.img" alt="@phone.name" />
+                <h2> @phone.name</h2>
+                <p>@phone.shortDesc</p>
+                <p>Цена: @phone.price.ToString("c")</p>
+                <p><a class="btn btn-warning" href="#"> Подробнее</a></p>
+            </div>
         }
     }
-   
-</body>
-</html>
+</div>
