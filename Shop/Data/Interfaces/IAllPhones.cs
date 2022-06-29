@@ -7,7 +7,7 @@ namespace Shop.Data.Interfaces
     {
         IEnumerable<Phone> Phones { get; }
 
-        IEnumerable<Phone> getFavPhones { get; set; }
+        IEnumerable<Phone> getFavPhones { get; }
         Phone getObjectPhone(int phoneId);
     }
 }
