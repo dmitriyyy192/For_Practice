@@ -53,7 +53,12 @@ namespace Shop
             app.UseStatusCodePages();//позволяет отображать код страниц
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "Phone/{action}/{catogory?}", defaults: new { Controller = "Phone", action = "List" });
+            });
 
             using (var scope = app.ApplicationServices.CreateScope())
             {

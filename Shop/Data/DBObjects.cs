@@ -9,9 +9,7 @@ namespace Shop.Data
     public class DBObjects
     {
         public static void Initial(AppDBContent content)
-        {
-
-                       
+        {                      
 
             if(!content.Category.Any())
             {
@@ -47,6 +45,18 @@ namespace Shop.Data
 
                     new Phone
                     {
+                        name = "iPhone X",
+                        shortDesc = "Нестареющая классика",
+                        longDesc = "Отличный вариант для тех кто хочет iPhone, но не хочетмного платить",
+                        img = "/img/7.jpeg",
+                        price = 1000,
+                        isFavourite = false,
+                        available = true,
+                        Category = Categories["IOS"],
+                    },
+
+                    new Phone
+                    {
                         name = "Xiaomi 11T Pro",
                         shortDesc = "Народный телефон",
                         longDesc = "Современный телефон, дизайн на высоте, по доступной цене",
@@ -71,6 +81,18 @@ namespace Shop.Data
 
                     new Phone
                     {
+                        name = "OnePlus 9 Pro",
+                        shortDesc = "Отличный телефон, который подойдет под все нужды",
+                        longDesc = "Современный телефон с хорошим дизайном от Китайской компании",
+                        img = "/img/8.jpeg",
+                        price = 2450,
+                        isFavourite = false,
+                        available = true,
+                        Category = Categories["Android"],
+                    },
+
+                    new Phone
+                    {
                         name = "Microsoft Lumia 950 XL",
                         shortDesc = "Устаревший телефон",
                         longDesc = "Устаревший, но стабильно работающий телефон от компании Microsoft",
@@ -87,6 +109,18 @@ namespace Shop.Data
                         shortDesc = "Устаревший телефон",
                         longDesc = "Хороший телефон за низкую ценю от компании Nokia",
                         img = "/img/6.webp",
+                        price = 242,
+                        isFavourite = false,
+                        available = true,
+                        Category = Categories["WindowsPhone"],
+                    },
+
+                    new Phone
+                    {
+                        name = "HTC One (M8) for Windows",
+                        shortDesc = "Устаревший телефон",
+                        longDesc = "Если нужно просто позвонить, то данный телефон отлично справится",
+                        img = "/img/9.png",
                         price = 242,
                         isFavourite = false,
                         available = true,
