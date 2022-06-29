@@ -1,0 +1,13 @@
+﻿@model ShopPhoneViewModel
+
+<div class="container">
+    @foreach (var el in Model.shopPhones.listShopItems)
+    {
+        <div class="alert alert-warning mt-3">
+            <b>Телефон:</b> @el.phone.name<br />
+            <b>Цена:</b> @el.phone.price.ToString("c")
+        </div>
+    }
+    <hr />
+    <div class="btn btn-danger" asp-controller="Order">Оплатить</div>
+</div>

@@ -16,7 +16,7 @@ namespace Shop.Controllers
         }
 
         public ViewResult List()
-        {
+        { 
             ViewBag.Title = "Страница с телефонами";
             PhonesListViewModel obj = new PhonesListViewModel();
             obj.allPhones = _allPhones.Phones;

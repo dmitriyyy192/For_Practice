@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Shop.Data;
 using Shop.Data.Interfaces;
 using Shop.Data.Mocks;
+using Shop.Data.Models;
 using Shop.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,12 @@ namespace Shop
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllPhones, PhoneRepository>();
             services.AddTransient<IPhonesCategory, CategoryRepository >();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopPhones.GetPhone(sp));
+
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMemoryCache();
             services.AddSession();
         }
 
@@ -46,6 +52,7 @@ namespace Shop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();//позволяет отображать код страниц
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             using (var scope = app.ApplicationServices.CreateScope())
