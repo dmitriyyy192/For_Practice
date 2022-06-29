@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Shop.Migrations
 {
@@ -12,7 +11,7 @@ namespace Shop.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     categoryName = table.Column<string>(nullable: true),
                     desc = table.Column<string>(nullable: true)
                 },
@@ -26,7 +25,7 @@ namespace Shop.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(nullable: true),
                     shortDesc = table.Column<string>(nullable: true),
                     longDesc = table.Column<string>(nullable: true),
