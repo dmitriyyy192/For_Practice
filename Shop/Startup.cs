@@ -36,7 +36,8 @@ namespace Shop
         {   
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllPhones, PhoneRepository>();
-            services.AddTransient<IPhonesCategory, CategoryRepository >();
+            services.AddTransient<IPhonesCategory, CategoryRepository>();
+            services.AddTransient<IAllOrders, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopPhones.GetPhone(sp));
